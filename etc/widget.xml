@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+ /**
+ * Coreway_Productslider Module
+ *
+ * @package     Coreway_Productslider
+ * @author      Coreway Solution
+ *
+ */
+ -->
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="coreway_product_slider" class="Coreway\Productslider\Block\Slider"
+            placeholder_image="Magento_Cms::images/widget_block.png">
+        <label translate="true">Coreway Product Slider</label>
+        <description translate="true">Set Coreway Product Slider</description>
+        <parameters>
+            <parameter name="widget_coreway_slider_id" xsi:type="block" visible="true" required="true" sort_order="20">
+                <label translate="true">Slider</label>
+                <block class="Coreway\Productslider\Block\Adminhtml\Block\Widget\Chooser">
+                    <data>
+                        <item name="button" xsi:type="array">
+                            <item name="open" xsi:type="string" translate="true">Select Slider...</item>
+                        </item>
+                    </data>
+                </block>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

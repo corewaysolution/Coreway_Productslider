@@ -1,0 +1,163 @@
+<?php
+$id= $block->getId();
+$attribute_array = [];
+$attributeInfo = $block->getAttributeList();
+$categoryInfo = $block->getCategoryCollection();
+?>
+<?php
+if ($id != 0) {
+    $data= $block->getAllData($id);
+?>
+
+<div class="two-image-general-info admin__scope-old" style="margin-bottom:30px;">
+    <legend class="admin__legend legend" style="position: static;float: left;box-sizing: border-box;border-bottom: 1px solid #cac3b4;margin: 0 0 18px;color: #303030;font-size: 1.7rem;font-weight: 600;padding: 7px 0 10px;display: inline-block;width: 100%;">
+                <span><?= /* @escapeNotVerified */ __("Product Slider Block Information"); ?></span>
+    </legend>
+	<div class="remonte_product_slider_block_main_title_inner">
+        <?php if (count($attributeInfo) > 0) { ?>
+        <div class="coreway_product_slider_attribute_code_main" style="width: 100%;display: inline-block;margin-bottom: 3rem;">
+            <label style="width: 18%;text-align: right;padding: 5px 15px 0 0;float: left;display: inline-block; font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 1.4rem;font-weight: 600;color: #303030;margin: 0;text-align: right;"><?= /* @escapeNotVerified */ __("Select Attribute"); ?></label>
+                <select name="coreway_product_slider_attribute_code" id="coreway_product_slider_attribute_code" class="coreway_product_slider_attribute_code select admin__control-select">
+                    <option value=""><?= /* @escapeNotVerified */ __("Select Attribute"); ?></option>
+                    <?php
+                    foreach ($attributeInfo as $attribute) {
+                        $s_name =  $attribute['frontend_label'];
+                        $s_id =  $attribute['attribute_code'];
+                    ?>
+                    <option value="<?= /* @escapeNotVerified */ $s_id; ?>" <?php if ($s_id == $data["coreway_product_slider_attribute_code"]) { ?> selected="selected" <?php } ?>><?= /* @escapeNotVerified */ $s_name; ?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+        </div>
+        <?php } ?>
+
+        <?php if (count($attributeInfo) > 0) { ?>
+            <?php
+            $attributeValueInfo = $block->getAttributeValue($data["coreway_product_slider_attribute_code"]);
+                
+            if (count($attributeValueInfo) > 0) {
+        ?>
+        <div class="coreway_product_slider_attribute_value_main" style="width: 100%;display: inline-block;margin-bottom: 3rem;">
+            <label style="width: 18%;text-align: right;padding: 5px 15px 0 0;float: left;display: inline-block;font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 1.4rem;font-weight: 600;color: #303030;margin: 0;text-align: right;"><?= /* @escapeNotVerified */ __("Select Value"); ?></label>
+                <select name="coreway_product_slider_attribute_value" id="coreway_product_slider_attribute_value" class="coreway_product_slider_attribute_value select admin__control-select">
+                    <option value=""><?= /* @escapeNotVerified */ __("Select Value"); ?></option>
+                    <?php foreach ($attributeValueInfo as $attributedata) { ?>
+                        <?php if ($attributedata['value'] != "" && $attributedata['label'] != "") { ?>
+                            <option value="<?= /* @escapeNotVerified */ $attributedata['value']; ?>" <?php if ($attributedata['value'] == $data["coreway_product_slider_attribute_value"]) { ?> selected="selected" <?php } ?>><?= /* @escapeNotVerified */ $attributedata['label']; ?></option>
+                        <?php } ?>
+                    <?php } ?>
+                </select>
+        </div>
+            <?php } ?>
+        <?php } ?>
+
+        <?php if (count($categoryInfo) > 0) { ?>
+        <div class="coreway_product_slider_category_id_main" style="width: 100%;display: inline-block; margin-bottom: 3rem;">
+            <label style="width: 18%;text-align: right;padding: 5px 15px 0 0;float: left;display: inline-block;font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 1.4rem;font-weight: 600;color: #303030;margin: 0;text-align: right;"><?= /* @escapeNotVerified */ __("Select Category"); ?></label>
+                <select name="coreway_product_slider_category_id" id="coreway_product_slider_category_id" class="coreway_product_slider_category_id select admin__control-select">
+                    <option value=""><?= /* @escapeNotVerified */ __("Select Category"); ?></option>
+                    <?php
+                    foreach ($categoryInfo as $category) {
+                        $s_name =  $category->getName();
+                        $s_id =  $category->getId();
+                    ?>
+                    <option value="<?= /* @escapeNotVerified */ $s_id; ?>" <?php if ($s_id == $data["coreway_product_slider_category_id"]) { ?> selected="selected" <?php } ?>><?= /* @escapeNotVerified */ $s_name; ?></option>
+                <?php } ?>
+                </select>
+        </div>
+        <?php } ?>
+
+        <div class="coreway_product_slider_number_main" style="width: 100%;display: inline-block;    margin-bottom: 3rem;">
+            <label style="width: 18%;text-align: right;padding: 5px 15px 0 0;float: left;display: inline-block;font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 1.4rem;font-weight: 600;color: #303030;margin: 0;text-align: right;"><?= /* @escapeNotVerified */ __("No of Product in Slider"); ?></label>
+            
+             <input type="text" name="coreway_product_slider_number" id="coreway_product_slider_number" class="coreway_product_slider_number  input-text admin__control-text" value="<?= /* @escapeNotVerified */ $data["coreway_product_slider_number"];?>" style="width: 25%;float: left;display: inline-block;"/>
+        </div>
+
+        
+
+        
+    </div>
+</div>
+
+<?php } else { ?>
+<div class="two-image-general-info admin__scope-old" style="margin-bottom:30px;">
+	<legend class="admin__legend legend" style="position: static;float: left;box-sizing: border-box;border-bottom: 1px solid #cac3b4;margin: 0 0 18px;color: #303030;font-size: 1.7rem;font-weight: 600;padding: 7px 0 10px;display: inline-block;width: 100%;">
+                <span><?php echo __("Product Slider Block Information"); ?></span>
+    </legend>
+	<div class="remonte_product_slider_block_sub_title_inner">
+    <?php if (count($attributeInfo) > 0) { ?>
+        <div class="coreway_product_slider_attribute_code_main" style="width: 100%;display: inline-block;    margin-bottom: 3rem;">
+            <label style="width: 18%;text-align: right;padding: 5px 15px 0 0;float: left;display: inline-block;font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 1.4rem;font-weight: 600;color: #303030;margin: 0;text-align: right;"><?= /* @escapeNotVerified */ __("Select Attribute"); ?></label>
+                <select name="coreway_product_slider_attribute_code" id="coreway_product_slider_attribute_code" class="coreway_product_slider_attribute_code select admin__control-select">
+                    <option value=""><?= /* @escapeNotVerified */ __("Select Attribute"); ?></option>
+                    <?php
+                    foreach ($attributeInfo as $attribute) {
+                        $s_name =  $attribute['frontend_label'];
+                        $s_id =  $attribute['attribute_code'];
+                    ?>
+                    <option value="<?= /* @escapeNotVerified */ $s_id; ?>"><?= /* @escapeNotVerified */ $s_name; ?></option>
+                    <?php } ?>
+                </select>
+        </div>
+        <?php } ?>
+
+        <?php if (count($attributeInfo) > 0) { ?>
+        <div class="coreway_product_slider_attribute_value_main" style="width: 100%;display: inline-block;    margin-bottom: 3rem;">
+            <label style="width: 18%;text-align: right;padding: 5px 15px 0 0;float: left;display: inline-block;font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 1.4rem;font-weight: 600;color: #303030;margin: 0;text-align: right;"><?= /* @escapeNotVerified */ __("Select Value"); ?></label>
+                <select name="coreway_product_slider_attribute_value" id="coreway_product_slider_attribute_value" class="coreway_product_slider_attribute_value select admin__control-select">
+                    <option value="" selected="selected"><?= /* @escapeNotVerified */ __("Select Value"); ?></option>
+                </select>
+        </div>
+        <?php } ?>
+
+        <?php if (count($categoryInfo) > 0) { ?>
+        <div class="coreway_product_slider_category_id_main" style="width: 100%;display: inline-block;    margin-bottom: 3rem;">
+            <label style="width: 18%;text-align: right;padding: 5px 15px 0 0;float: left;display: inline-block;font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 1.4rem;font-weight: 600;color: #303030;margin: 0;text-align: right;"><?= /* @escapeNotVerified */ __("Select Category"); ?></label>
+                <select name="coreway_product_slider_category_id" id="coreway_product_slider_category_id" class="coreway_product_slider_category_id select admin__control-select">
+                    <option value=""><?= /* @escapeNotVerified */ __("Select Category"); ?></option>
+                    <?php
+                    foreach ($categoryInfo as $category) {
+                        $s_name =  $category->getName();
+                        $s_id =  $category->getId();
+                    ?>
+                    <option value="<?= /* @escapeNotVerified */ $s_id; ?>"><?= /* @escapeNotVerified */ $s_name; ?></option>
+                    <?php } ?>
+                </select>
+        </div>
+        <?php } ?>
+
+        <div class="coreway_product_slider_number_main" style="width: 100%;display: inline-block;    margin-bottom: 3rem;">
+            <label style="width: 18%;text-align: right;padding: 5px 15px 0 0;float: left;display: inline-block;font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 1.4rem;font-weight: 600;color: #303030;margin: 0;text-align: right;"><?= /* @escapeNotVerified */ __("No of Product in Slider"); ?></label>
+            
+             <input type="text" name="coreway_product_slider_number" id="coreway_product_slider_number" class="coreway_product_slider_number input-text admin__control-text" value="" style="width: 25%;float: left;display: inline-block;"/>
+        </div>
+
+       
+        
+    </div>
+</div>
+
+<?php } ?>
+
+
+<script type="text/javascript">
+    require([
+        "jquery", "jquery/ui"
+		],function($){
+            $(document).on('change','.coreway_product_slider_attribute_code',function() {
+                var attributeCode = $(this).val();
+                $('#coreway_product_slider_attribute_value').empty().append('<option value="">Select Value</option>');
+                $.ajax({
+                    showLoader: true,
+                    url: '<?= /* @escapeNotVerified */ $block->getUrl("corewayproductslider/index/valuelist"); ?>'+'?attributeCode='+attributeCode,
+                    data: attributeCode,
+                    type: "GET",
+                    dataType: 'json'
+                }).done(function (data) {
+                    $('#coreway_product_slider_attribute_value').append(data.value);
+                    console.log(data);
+                });
+            });
+        });
+</script>

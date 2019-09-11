@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+ /**
+ * Coreway_Productslider Module
+ *
+ * @package     Coreway_Productslider
+ * @author      Coreway Solution
+ *
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="Magento_Customer::js/bootstrap/customer-post-action.js"/>
+    </head>
+    <body>
+		<referenceContainer name="left">
+        <block class="Coreway\Productslider\Block\Adminhtml\Grid\Edit\Tabs" name="Coreway_productslider_grid.edit.tabs"/>
+    </referenceContainer>
+    <referenceContainer name="content">
+        <block class="Coreway\Productslider\Block\Adminhtml\Grid\AddRow" name="add_row" />
+    </referenceContainer>
+    </body>
+</page>

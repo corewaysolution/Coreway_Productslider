@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!--
+ /**
+ * Coreway_Productslider Module
+ *
+ * @package     Coreway_Productslider
+ * @author      Coreway Solution
+ *
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config/etc/system.xsd">
+    <system>
+        <tab id="corewayproductslider" translate="label" sortOrder="500">
+            <label>Coreway Product Slider</label>
+        </tab>
+        <section id="corewayproductslider" translate="label" type="text" sortOrder="150" showInWebsite="1" showInStore="1" showInDefault="1">
+            <label>Coreway Product Slider</label>
+            <tab>corewayproductslider</tab>
+            <resource>Coreway_Productslider::manage_sliders</resource>
+            <group id="general" translate="label" type="text" sortOrder="120" showInWebsite="1" showInStore="1" showInDefault="1">
+                <label>General Setting</label>
+                <field id="enable_productslider" translate="label comment" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1">
+                    <label>Enable</label>
+                    <comment>Enable extension on frontend</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="product_attribute_settings" translate="label" type="text" sortOrder="130" showInWebsite="1" showInStore="1" showInDefault="1">
+                <label>Default Product Attribute</label>
+                <field id="display_image" translate="label" type="select" sortOrder="5" showInWebsite="1" showInStore="1" showInDefault="1">
+                    <label>Display Image</label>
+                    <comment>Display image on frontend</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_title" translate="label" type="select" sortOrder="5" showInWebsite="1" showInStore="1" showInDefault="1">
+                    <label>Display title</label>
+                    <comment>Display title on frontend</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_price" translate="label" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1">
+                    <label>Display price</label>
+                    <comment>Display price on frontend</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_review" translate="label" type="select" sortOrder="15" showInWebsite="1" showInStore="1" showInDefault="1">
+                    <label>Display Review Summary</label>
+                    <comment>Display Review Summary on frontend</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_cart" translate="label" type="select" sortOrder="15" showInWebsite="1" showInStore="1" showInDefault="1">
+                    <label>Display Cart</label>
+                    <comment>Display add to cart button on frontend</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_wishlist" translate="label" type="select" sortOrder="20" showInWebsite="1" showInStore="1" showInDefault="1">
+                    <label>Display Wishlist</label>
+                    <comment>Display add to wish list on frontend</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_compare" translate="label" type="select" sortOrder="25" showInWebsite="1" showInStore="1" showInDefault="1">
+                    <label>Display Compare</label>
+                    <comment>Display add to compare on frontend</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="slider_settings" translate="label" type="text" sortOrder="140" showInWebsite="1" showInStore="1" showInDefault="1">
+                <label>Default Slider Setting</label>
+                <field id="navigation" translate="label" type="select" sortOrder="55" showInWebsite="1" showInStore="1" showInDefault="1">
+                    <label>Navigation</label>
+                    <comment>Enable Navigation (dots below slider)</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="infinite" translate="label comment" type="select" sortOrder="60" showInWebsite="1" showInStore="1" showInDefault="1">
+                    <label>Infinite</label>
+                    <comment>Infinite loop sliding</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="autoplay" translate="label" type="select" sortOrder="80" showInWebsite="1" showInStore="1" showInDefault="1">
+                    <label>Autoplay</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="autoplay_speed" translate="label" type="text" sortOrder="85" showInWebsite="1" showInStore="1" showInDefault="1">
+                    <label>Autoplay speed</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

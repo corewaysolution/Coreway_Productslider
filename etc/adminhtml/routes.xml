@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+ /**
+ * Coreway_Productslider Module
+ *
+ * @package     Coreway_Productslider
+ * @author      Coreway Solution
+ *
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="corewayproductslider" frontName="corewayproductslider">
+            <module name="Coreway_Productslider" />
+        </route>
+    </router>
+</config>
+

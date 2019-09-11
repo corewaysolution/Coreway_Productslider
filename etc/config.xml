@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+ /**
+ * Coreway_Productslider Module
+ *
+ * @package     Coreway_Productslider
+ * @author      Coreway Solution
+ *
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <productslider>
+            <general>
+                <enable_productslider>0</enable_productslider>
+            </general>
+            <product_attribute_settings>
+                <display_image>0</display_image>
+                <display_title>0</display_title>
+                <display_price>1</display_price>
+                <display_review>1</display_review>
+                <display_cart>1</display_cart>
+                <display_wishlist>1</display_wishlist>
+                <display_compare>1</display_compare>
+            </product_attribute_settings>    
+            <slider_settings>
+                <navigation>0</navigation>
+                <infinite>1</infinite>
+                <autoplay>0</autoplay>
+                <autoplay_speed>1000</autoplay_speed>
+            </slider_settings>
+        </productslider>
+    </default>
+</config>

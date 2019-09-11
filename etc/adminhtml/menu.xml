@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+ /**
+ * Coreway_Productslider Module
+ *
+ * @package     Coreway_Productslider
+ * @author      Coreway Solution
+ *
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+       
+		<add id="Coreway_Productslider::productslider" title="Coreway Product Slider" module="Coreway_Productslider" sortOrder="51" resource="Coreway_Productslider::productslider"/>
+	   	   
+		<add id="Coreway_Productslider::add_row" title="Product Slider" module="Coreway_Productslider" sortOrder="10" action="corewayproductslider/index" parent="Coreway_Productslider::productslider" resource="Magento_Backend::content"/>
+
+        <add id="Coreway_Productslider::config" title="Settings" module="Coreway_Productslider" resource="Coreway_Productslider::config" sortOrder="11" parent="Coreway_Productslider::productslider" action="adminhtml/system_config/edit/section/corewayproductslider"/>
+    </menu>
+</config>
