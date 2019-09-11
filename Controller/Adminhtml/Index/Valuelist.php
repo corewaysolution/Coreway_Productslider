@@ -14,18 +14,17 @@ class Valuelist extends \Magento\Backend\App\Action
 	protected $eavConfig;
 
 	public function __construct(
-		\Magento\Framework\App\Action\Context $context,
+		\Magento\Backend\App\Action\Context $context,
 		\Magento\Framework\ObjectManagerInterface $objectManager,
 		\Magento\Catalog\Model\ResourceModel\Eav\Attribute $attributeFactory,
 		JsonFactory $resultJsonFactory,
-		\Magento\Eav\Model\Config $eavConfig,
-		array $data = []
+		\Magento\Eav\Model\Config $eavConfig
 	) {
 		$this->_objectManager = $objectManager;
 		$this->_attributeFactory = $attributeFactory;
 		$this->resultJsonFactory = $resultJsonFactory;
 		$this->eavConfig = $eavConfig;
-		parent::__construct($context, $data);
+		parent::__construct($context);
 	}
 	
 	public function execute()
