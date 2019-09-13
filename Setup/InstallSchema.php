@@ -16,7 +16,7 @@ class InstallSchema implements InstallSchemaInterface
         $installer->startSetup();
         
         $table = $installer->getConnection()->newTable(
-            $installer->getTable('Coreway_productslider')
+            $installer->getTable('coreway_productslider')
         )->addColumn(
             'id',
             \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
