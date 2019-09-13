@@ -21,5 +21,15 @@
     "psr-4": {
       "Coreway\\Productslider\\": ""
     }
-  }
+  },
+  "repositories": [
+        {
+        "type": "composer",
+        "url": "https://repo.magento.com/"
+     },
+     {
+        "type": "git",
+        "url": "https://github.com/corewaysolution/Coreway_Productslider"
+    }
+  ]
 }
