@@ -104,7 +104,7 @@ class Slider extends \Magento\Framework\View\Element\Template implements \Magent
         $collection->addAttributeToFilter('status', \Magento\Catalog\Model\Product\Attribute\Source\Status::STATUS_ENABLED);
         $collection->addAttributeToFilter($attrCode, ['like' => '%' .$attrValue. '%']);
         $collection->setPageSize($productNumber);
-        return $collection->getData();
+        return $collection;
     }
 
     public function getProductPrice($product)

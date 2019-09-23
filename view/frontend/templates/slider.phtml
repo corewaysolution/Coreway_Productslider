@@ -28,7 +28,7 @@ if (count($widgetSliderData) > 0) {
         		<?php foreach ($collection as $_item) { ?>
         			<li class="item product product-item">
 	                	<?php
-	                	$prdoductLoop = $objectManager->get('Magento\Catalog\Model\Product')->load($_item['entity_id']);
+	                	$prdoductLoop=$_item;
                         $imageHelper  = $objectManager->get('\Magento\Catalog\Helper\Image');
                         $product_image = $imageHelper->init($prdoductLoop, 'product_base_image')->setImageFile($prdoductLoop->getFile())->getUrl();
                         $productUrl  = $prdoductLoop->getProductUrl();
@@ -62,8 +62,12 @@ if (count($widgetSliderData) > 0) {
 		                                <?php if ($productConfiguration["product_cart"] == "1") { ?>
 		                                <div class="actions-primary">
 		                                    <?php if ($prdoductLoop->isSaleable()): ?>
-		                                        <?php $postParams = $block->getAddToCartPostParams($prdoductLoop); ?>
-		                                        <form data-role="tocart-form" data-product-sku="<?= /* @escapeNotVerified */ $block->escapeHtml($prdoductLoop->getSku()) ?>" action="<?= /* @NoEscape */ $postParams['action'] ?>" method="post">
+		                                        <?php 
+                                                $postParams = $block->getAddToCartPostParams($prdoductLoop); 
+                                                $listBlock = $objectManager->get('\Magento\Catalog\Block\Product\ListProduct');
+                                                $addToCartUrl =  $listBlock->getAddToCartUrl($prdoductLoop);
+                                                ?>
+		                                        <form data-role="tocart-form" data-product-sku="<?= /* @escapeNotVerified */ $block->escapeHtml($prdoductLoop->getSku()) ?>" action="<?= /* @NoEscape */ $addToCartUrl ?>" method="post">
 		                                            <input type="hidden" name="product" value="<?= /* @escapeNotVerified */ $postParams['data']['product'] ?>">
 		                                            <input type="hidden" name="<?= /* @escapeNotVerified */ Action::PARAM_NAME_URL_ENCODED ?>" value="<?= /* @escapeNotVerified */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
 		                                            <?= /* @escapeNotVerified */ $block->getBlockHtml('formkey') ?>
